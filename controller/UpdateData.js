@@ -1,34 +1,33 @@
-const dataModel= require('../Schma/data')
+const dataModel = require('../Schma/data')
 
 
-const updateData= async(req, res)=>{
-    try{
+const updateData = async (req, res) => {
+    try {
 
 
-        const {id, name, email, password, contact, role}=req.body
+        const { id, name, email, address, contact, gender } = req.body
 
         // console.log(id, name, email, password, contact, role)
 
-        const payload={
-            ...(name && {name:name}),
-            ...(email && {email:email}),
-            ...(password && {password:password}),
-            ...(contact && {contact:contact}),
-            ...(role && {role:role}),
+        const payload = {
+            ...(name && { name: name }),
+            ...(email && { email: email }),
+            ...(address && { address: address }),
+            ...(contact && { contact: contact }),
+            ...(gender && { gender: gender }),
         }
 
-        const updateData= await dataModel.findByIdAndUpdate(id, payload)
-        
+        const updateData = await dataModel.findByIdAndUpdate(id, payload)
+
         res.status(200).json({
             message: "Data updated Successfully",
             error: false,
             success: true,
             data: updateData
-
         })
 
     }
-    catch(err){
+    catch (err) {
         res.status(400).json({
             message: err.message || err,
             error: false,
@@ -36,9 +35,9 @@ const updateData= async(req, res)=>{
 
         })
     }
- 
+
 
 }
 
 
-module.exports= updateData
+module.exports = updateData

@@ -3,6 +3,7 @@ const dataModel= require('../Schma/data')
 const addData=async(req, res)=>{
     try{
         const formdata= req.body
+        console.log(formdata)
         const saveData= await dataModel.create(formdata)
 
         res.status(200).json({

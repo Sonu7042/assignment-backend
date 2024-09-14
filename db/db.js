@@ -1,9 +1,7 @@
 const mongooose= require('mongoose')
 
 
-
-
-const link="mongodb+srv://admin:sonusingh@cluster0.4e8zdvt.mongodb.net/"
+const link= "mongodb+srv://admin:sonu12@cluster0.yvrnr.mongodb.net/"
 
 const connectDB=async()=>{
     try{
